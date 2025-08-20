@@ -16,7 +16,7 @@ void pre_auton(void) {
 
 void autonomous(void) {
 }
-
+//testing ssh key auth
 void usercontrol(void) {
   while (1) {
     wait(20, msec);
