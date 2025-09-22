@@ -5,8 +5,7 @@
 #include "vex.h";
 using namespace vex;
 
-
-//FUNC
+void calibrateInertial();
 
 
 #endif
