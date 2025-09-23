@@ -71,7 +71,39 @@ void autonomous(void) {
 }
 
 void usercontrol(void) {
+
+  leftSide.setStopping(coast);
+  rightSide.setStopping(coast);
+  intakeMotor.setStopping(coast);
+  intakeMotor.setVelocity(100,percent);
+
   while (1) {
+
+
+//Intake Motor
+
+    if(Controller.ButtonR2.pressing()==true && Controller.ButtonR1.pressing()==false){
+      //if the right trigger is being pressed AND the right bumper is not then it outtakes
+      intakeMotor.spin(reverse);
+    }
+
+    else if(Controller.ButtonR1.pressing()==true && Controller.ButtonR2.pressing()==false){
+      //if the right bumper is being pressed AND the right trigger is not then it intakes
+      intakeMotor.spin(forward);
+    }
+
+    else{
+      //if no buttons are being pressed OR both buttons are being pressed then it stops
+      intakeMotor.stop();
+    }
+
+
+
+
+
+
+
+
     wait(20, msec);
   }
 }
