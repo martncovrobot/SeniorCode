@@ -48,7 +48,7 @@ void autonomous(void) {
   leftSide.setStopping(hold);
   rightSide.setVelocity(40,percent);
   leftSide.setVelocity(40,percent);
-  intakeMotor.setVelocity(100,percent);
+  intake.setVelocity(100,percent);
 
   switch(autonMode) {
     case 1:
@@ -74,8 +74,8 @@ void usercontrol(void) {
 
   leftSide.setStopping(coast);
   rightSide.setStopping(coast);
-  intakeMotor.setStopping(coast);
-  intakeMotor.setVelocity(100,percent);
+  intake.setStopping(coast);
+  intake.setVelocity(100,percent);
 
   while (1) {
 
@@ -84,17 +84,17 @@ void usercontrol(void) {
 
     if(Controller.ButtonR2.pressing()==true && Controller.ButtonR1.pressing()==false){
       //if the right trigger is being pressed AND the right bumper is not then it outtakes
-      intakeMotor.spin(reverse);
+      spinIntake(true);
     }
 
     else if(Controller.ButtonR1.pressing()==true && Controller.ButtonR2.pressing()==false){
       //if the right bumper is being pressed AND the right trigger is not then it intakes
-      intakeMotor.spin(forward);
+      spinIntake(false);
     }
 
     else{
       //if no buttons are being pressed OR both buttons are being pressed then it stops
-      intakeMotor.stop();
+      intake.stop();
     }
 
 

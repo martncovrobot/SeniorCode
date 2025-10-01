@@ -8,7 +8,9 @@ using namespace vex;
 
 extern brain Brain;
 extern controller Controller;
-extern motor intakeMotor;
+extern motor intakeMotorLeft;
+extern motor intakeMotorRight;
+extern motor intakeMotorTop;
 extern motor LFM;
 extern motor LMM;
 extern motor LBM;
@@ -18,10 +20,12 @@ extern motor RBM;
 
 extern inertial inertialSensor;
 
+extern motor_group intake;
+extern motor_group intakeFront;
 extern motor_group leftSide;
 extern motor_group rightSide;
 
 
 
 
-#endif
+#endif;

@@ -6,6 +6,6 @@
 using namespace vex;
 
 void calibrateInertial();
-
+void spinIntake(bool isReverse);
 
 #endif
