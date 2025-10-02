@@ -89,12 +89,12 @@ void usercontrol(void) {
 
     if(Controller.ButtonR2.pressing()==true && Controller.ButtonR1.pressing()==false){
       //if the right trigger is being pressed AND the right bumper is not then it outtakes
-      spinIntake(goReverse);
+      spinIntake(reverse);
     }
 
     else if(Controller.ButtonR1.pressing()==true && Controller.ButtonR2.pressing()==false){
       //if the right bumper is being pressed AND the right trigger is not then it intakes
-      spinIntake(goForward);
+      spinIntake(forward);
     }
 
     else{

@@ -14,10 +14,6 @@ void calibrateInertial()
   }
 }
 
-void spinIntake(std::string direction) {
-  if(direction == "forward" || direction == "") {
-    intake.spin(forward);
-  } else {
-    intake.spin(reverse);
-  }
+void spinIntake(vex::directionType dir) {
+    intake.spin(dir);
 }

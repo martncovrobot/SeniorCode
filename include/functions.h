@@ -7,6 +7,6 @@
 using namespace vex;
 
 void calibrateInertial();
-void spinIntake(std::string direction);
+void spinIntake(vex::directionType dir);
 
 #endif
