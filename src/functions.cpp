@@ -2,6 +2,7 @@
 #include "vex.h"
 #include "robot-config.h"
 #include "functions.h"
+#include <string>
 using namespace vex;
 
 void calibrateInertial()
@@ -13,12 +14,10 @@ void calibrateInertial()
   }
 }
 
-void spinIntake(bool isReverse) {
-  if(isReverse) {
-    intakeMotorRight.spin(reverse);
-    intakeMotorLeft.spin(reverse);
+void spinIntake(std::string direction) {
+  if(direction == "forward" || direction == "") {
+    intake.spin(forward);
   } else {
-    intakeMotorRight.spin(forward);
-    intakeMotorLeft.spin(forward);
+    intake.spin(reverse);
   }
 }
