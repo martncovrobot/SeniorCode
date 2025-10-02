@@ -22,7 +22,7 @@ std::string goForward = "forward";
 
 void pre_auton(void) {
 
-calibrateInertial();
+  calibrateInertial();
 
   while(Competition.isAutonomous()==false){
     //autonomous switcher
@@ -42,8 +42,8 @@ calibrateInertial();
     } 
 
     wait(0.5,seconds); //interval time
-    
-}
+
+  }
 }
 
 void autonomous(void) {
