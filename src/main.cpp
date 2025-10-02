@@ -12,6 +12,7 @@
 #include "functions.h"
 #include <string>
 using namespace vex;
+
 competition Competition;
 
 int autonMode;
@@ -32,7 +33,7 @@ calibrateInertial();
     else if(Controller.ButtonLeft.pressing()==true) autonMode = 4; //mode 4
     Controller.Screen.clearLine();
     Controller.Screen.setCursor(1,1);
-    switch(autonMode){
+    switch(autonMode){ //we can add more cases if we find more buttons to use (we could even use combos)
       case 1: Controller.Screen.print("Auton 1"); break;
       case 2: Controller.Screen.print("Auton 2"); break;
       case 3: Controller.Screen.print("Drive Forward"); break;
@@ -84,7 +85,7 @@ void usercontrol(void) {
   while (1) {
 
 
-//Intake Motor
+    //Intake Motor
 
     if(Controller.ButtonR2.pressing()==true && Controller.ButtonR1.pressing()==false){
       //if the right trigger is being pressed AND the right bumper is not then it outtakes
@@ -102,11 +103,13 @@ void usercontrol(void) {
     }
 
 
+    //DriveTrain Motors
+    
+    leftSide.setVelocity(Controller.Axis3.position(), percent); //percentage (decimal between 0-1) of max speed of each side is equal to current_position÷range of each analog stick
+    rightSide.setVelocity(Controller.Axis2.position(), percent);
 
-
-
-
-
+    leftSide.spin(forward); //motors always spinning, but if analog stick is centered then speed = 0 so it wont move
+    rightSide.spin(forward);
 
     wait(20, msec);
   }
