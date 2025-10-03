@@ -11,9 +11,9 @@ motor RFM = motor(PORT10, ratio6_1, false);
 motor RMM = motor(PORT9, ratio6_1, false);
 motor RBM = motor(PORT8, ratio6_1, false);
 
-motor intakeMotorRight = motor(PORT4, ratio18_1, true);
+motor intakeMotorRight = motor(PORT4, ratio18_1, false);
 motor intakeMotorLeft = motor(PORT3, ratio18_1, true);
-motor intakeMotorTop = motor(PORT15, ratio18_1, true);
+motor intakeMotorTop = motor(PORT15, ratio18_1, false);
 
 inertial inertialSensor = inertial(PORT18);
 
