@@ -65,7 +65,7 @@ void autonomous(void) {
     break;
 
     case 3:
-    //Drive forward
+      
     break;
 
     case 4:

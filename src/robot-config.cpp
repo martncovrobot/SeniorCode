@@ -20,3 +20,4 @@ motor_group intakeFront = motor_group(intakeMotorRight,intakeMotorLeft);
 motor_group intake = motor_group(intakeMotorRight,intakeMotorLeft,intakeMotorTop);
 motor_group leftSide = motor_group(LFM,LMM,LBM);
 motor_group rightSide = motor_group(RFM, RMM, RBM);
+motor_group Drivetrain = motor_group(RFM, RMM, RBM, LFM,LMM,LBM);

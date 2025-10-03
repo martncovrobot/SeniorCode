@@ -17,3 +17,7 @@ void calibrateInertial()
 void spinIntake(vex::directionType dir) {
     intake.spin(dir);
 }
+
+void drive(vex::directionType direction, double inches) {
+  
+}

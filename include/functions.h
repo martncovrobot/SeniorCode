@@ -8,5 +8,6 @@ using namespace vex;
 
 void calibrateInertial();
 void spinIntake(vex::directionType dir);
+void drive(vex::directionType direction, double inches);
 
 #endif
