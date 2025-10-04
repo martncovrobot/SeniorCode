@@ -18,6 +18,14 @@ void spinIntake(vex::directionType dir) {
     intake.spin(dir);
 }
 
+void spinIntakeFront(vex::directionType dir) {
+    intakeFront.spin(dir);
+}
+
 void drive(vex::directionType direction, double inches) {
-  
+
+}
+
+void driveSeconds(vex::directionType direction, double sec) {
+  Drivetrain.spinFor(direction, sec, seconds);
 }

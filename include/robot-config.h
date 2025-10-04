@@ -24,6 +24,7 @@ extern motor_group intake;
 extern motor_group intakeFront;
 extern motor_group leftSide;
 extern motor_group rightSide;
+extern motor_group Drivetrain;
 
 
 

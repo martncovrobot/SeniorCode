@@ -15,7 +15,7 @@ using namespace vex;
 
 competition Competition;
 
-int autonMode;
+int autonMode = -1;
 
 std::string goReverse = "reverse";
 std::string goForward = "forward";
@@ -47,17 +47,21 @@ void pre_auton(void) {
 }
 
 void autonomous(void) {
-  leftSide.stop();
-  rightSide.stop();
-  rightSide.setStopping(hold);
-  leftSide.setStopping(hold);
-  rightSide.setVelocity(40,percent);
-  leftSide.setVelocity(40,percent);
+  Drivetrain.setStopping(hold);
+  intake.setStopping(brake);
+
+  Drivetrain.setVelocity(40,percent);
   intake.setVelocity(100,percent);
+
+  Drivetrain.stop();
 
   switch(autonMode) {
     case 1:
-    //Auton 1
+      Drivetrain.setVelocity(80,percent);
+      spinIntake(forward);
+      driveSeconds(forward, 2);
+      intake.stop();
+      
     break;
 
     case 2:
@@ -71,15 +75,18 @@ void autonomous(void) {
     case 4:
     //Skills :)
     break;
+
+    default:
+    break;
   }
 
 }
 
 void usercontrol(void) {
 
-  leftSide.setStopping(coast);
-  rightSide.setStopping(coast);
-  intake.setStopping(coast);
+  Drivetrain.setStopping(coast);
+  Drivetrain.setVelocity(80,percent);
+  intake.setStopping(brake);
   intake.setVelocity(100,percent);
 
   while (1) {
@@ -95,6 +102,14 @@ void usercontrol(void) {
     else if(Controller.ButtonR1.pressing()==true && Controller.ButtonR2.pressing()==false){
       //if the right bumper is being pressed AND the right trigger is not then it intakes
       spinIntake(forward);
+    } 
+    
+    else if(Controller.ButtonL2.pressing()==true && Controller.ButtonL1.pressing()==false) {
+      spinIntakeFront(reverse);
+    } 
+    
+    else if(Controller.ButtonL1.pressing()==true && Controller.ButtonL2.pressing()==false) {
+      spinIntakeFront(forward);
     }
 
     else{
