@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
-/*    Author:       Farty Marty                                               */
+/*    Author:       Farty Marty :3                                            */
 /*    Created:      8/20/2025, 7:57:19 AM                                     */
 /*    Description:  V5 project                                                */
 /*                                                                            */
@@ -57,11 +57,38 @@ void autonomous(void) {
 
   switch(autonMode) {
     case 1:
-      Drivetrain.setVelocity(80,percent);
-      spinIntake(forward);
+      Drivetrain.setVelocity(40,percent);
+      intake.setVelocity(100,percent);
+      intake.setStopping(brake);
+
       driveSeconds(forward, 2);
+      wait(0.1,seconds);
+
+      spinIntakeFront(forward);
+      wait(1, seconds);
       intake.stop();
-      
+
+      intakeMotorTop.spin(forward);
+      wait(0.5,seconds);
+      intake.stop();
+
+      spinIntakeFront(forward);
+      wait(1, seconds);
+      intake.stop();
+
+      leftSide.spin(reverse);
+      rightSide.spin(forward);
+      wait(0.1,seconds);
+      Drivetrain.stop();
+
+      wait(0.1,seconds);
+
+      driveSeconds(reverse, 1.5);
+
+      intake.spin(forward);
+      wait(5,seconds);
+      intake.stop();
+
     break;
 
     case 2:
